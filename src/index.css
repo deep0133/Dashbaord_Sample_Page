@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .responsive-width {
+    @apply w-[90%] sm:w-[86%] md:w-[80%] max-w-[90rem] mx-auto;
+  }
+}
