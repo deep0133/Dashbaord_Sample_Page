@@ -4,7 +4,7 @@ export default function Navbar() {
   const [menu, setMenu] = useState(false);
   return (
     <nav className='responsive-width flex justify-between items-center py-3'>
-      <h2 className='font-bold text-xl'>Proo.AI</h2>
+      <h2 className='font-bold text-xl'>Prooh.AI</h2>
       <div className='menu flex gap-5 items-center justify-center'>
         <img
           src='https://i.pinimg.com/originals/ae/ec/c2/aeecc22a67dac7987a80ac0724658493.jpg'
@@ -46,7 +46,7 @@ export default function Navbar() {
 
 const ShowMenu = () => {
   return (
-    <div className='absolute p-3 border-b-2 top-12 right-0 pr-16 '>
+    <div className='absolute p-3 bg-white border-b-2 top-12 right-0 pr-16 '>
       <div className='flex gap-2 items-center'>
         <div className='w-2 h-3 bg-yellow-400'></div>
         <p className='text-gray-400 text-sm '>Plan Creator</p>

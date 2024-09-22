@@ -2,16 +2,21 @@ import { Bar } from "react-chartjs-2";
 import { AreaChart } from "../components/AreaChart";
 import { data, options } from "../components/BarChart";
 
+import { Doughnut } from "react-chartjs-2";
+import {
+  data as doughnutData,
+  options as doughnutOptions,
+} from "../components/Doughnut";
 export default function Home() {
   return (
     <section className='responsive-width mt-5'>
       <div className='report mt-3 mb-5'>
-        <h2 className='text-xl font-medium'>Campaign Report</h2>
+        <h2 className='text-xl font-semibold'>Campaign Report</h2>
         <p className='text-gray-500'>
           Any Special Route You Want To Cover In This Campaign
         </p>
       </div>
-      <div className='campaign-name grid grid-cols-2 gap-8'>
+      <div className='campaign-name grid lg:grid-cols-2 gap-8'>
         <div className='left-side border'>
           <div className='first grid grid-cols-2 *:px-5 *:py-2'>
             <p className='campaign border-r border-b bg-gray-50'>
@@ -37,7 +42,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='card-container mt-8 *:border *:rounded-md grid grid-cols-4 gap-5'>
+      <div className='card-container mt-8 *:border *:rounded-md grid min-[500px]:grid-cols-2 lg:grid-cols-4 gap-5'>
         <div className='card-1 py-8 flex-col relative flex items-center justify-center'>
           <div className='absolute top-3 left-3 rounded-full bg-gray-50 flex justify-center items-center size-12'>
             <svg
@@ -55,7 +60,7 @@ export default function Home() {
               />
             </svg>
           </div>
-          <h2 className='text-2xl font-bold'>45</h2>
+          <h2 className='text-2xl font-semibold'>45</h2>
           <span className='text-gray-500'>Total Screens</span>
         </div>
         <div className='card-1 py-8 flex-col relative flex items-center justify-center'>
@@ -75,7 +80,7 @@ export default function Home() {
               />
             </svg>
           </div>
-          <h2 className='text-2xl font-bold'>2Cr</h2>
+          <h2 className='text-2xl font-semibold'>2Cr</h2>
           <span className='text-gray-500'>Total Cost</span>
         </div>
         <div className='card-1 py-8 flex-col relative flex items-center justify-center'>
@@ -95,7 +100,7 @@ export default function Home() {
               />
             </svg>
           </div>
-          <h2 className='text-2xl font-bold'>100K</h2>
+          <h2 className='text-2xl font-semibold'>100K</h2>
           <span className='text-gray-500'>Impressions Promised</span>
         </div>
         <div className='card-1 py-8 flex-col relative flex items-center justify-center'>
@@ -115,101 +120,120 @@ export default function Home() {
               />
             </svg>
           </div>
-          <h2 className='text-2xl font-bold'>4500</h2>
+          <h2 className='text-2xl font-semibold'>4500</h2>
           <span className='text-gray-500'>Total Slots</span>
         </div>
       </div>
 
-      <div className='mt-12 space-y-5'>
-        <div className='line1 grid grid-cols-12 gap-8 items-end'>
-          <h4 className='col-span-3 font-medium '>Duration</h4>
+      <div className='mt-12 space-y-5 '>
+        <div className='line1 grid sm:grid-cols-12 gap-8 items-end'>
+          <h4 className=' col-span-3 font-semibold'>Duration</h4>
           <div className='col-span-9 '>
-            <h3 className='mb-2 text-gray-500 font-medium'>1 Sept</h3>
-            <ChartLine val={50} />
+            <div className='flex justify-between'>
+              <h3 className='mb-2 text-gray-500 font-medium'>1 Sept</h3>
+              <h3 className='mb-2 text-gray-500 font-medium'>16 Sept</h3>
+            </div>
+            <ChartLine val={50} bg={"#e5e7eb"} color={"#00A0FA"} />
           </div>
         </div>
-        <div className='line2 grid grid-cols-12 gap-8 items-end'>
-          <h4 className='col-span-3 font-medium  '>Impressions</h4>
+        <div className='line2 grid sm:grid-cols-12 gap-8 items-end'>
+          <h4 className=' col-span-3 font-semibold'>Impressions</h4>
           <div className='col-span-9'>
-            <h3 className='mb-2 text-gray-500 font-medium'>90%</h3>
-            <ChartLine val={90} />
+            <div className='flex justify-between'>
+              <h3 className='mb-2 text-gray-500 font-medium'>90%</h3>
+              <h3 className='mb-2 text-gray-500 font-medium'>10%</h3>
+            </div>
+            <ChartLine val={90} bg={"#AA0000"} color={"#00A0FA"} />
           </div>
         </div>
       </div>
 
-      <div className='touch-point-cantainer border border-t-0 mt-12 pb-6 space-y-3'>
-        <div className='col-1 grid grid-cols-12 px-8 gap-5 py-2  rounded-t-md bg-blue-400'>
-          <h3 className='text-white col-span-3'>Touchpoint</h3>
-          <div className='text-white col-span-5 flex justify-center items-center'>
-            Performance
+      <div className='w-full relative overflow-x-auto'>
+        <div className='touch-point-cantainer min-w-[900px] overflow-auto border border-t-0 mt-12 pb-6 space-y-3'>
+          <div className='col-1 grid grid-cols-12 px-8 gap-5 py-2  rounded-t-md bg-blue-400'>
+            <h3 className='text-white col-span-3'>Touchpoint</h3>
+            <div className='text-white col-span-5 flex justify-center items-center'>
+              Performance
+            </div>
+            <h3 className='text-white col-span-2 text-center'>
+              online reporting
+            </h3>
+            <h3 className='text-white col-span-2 text-center'>
+              offline reporting
+            </h3>
           </div>
-          <h3 className='text-white col-span-2 text-center'>
-            online reporting
-          </h3>
-          <h3 className='text-white col-span-2 text-center'>
-            offline reporting
-          </h3>
-        </div>
-        <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
-          <h3 className=' col-span-3'>Premium High Street</h3>
-          <div className='col-span-5'>
-            <ChartLine val={80} />
+          <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
+            <h3 className=' col-span-3'>Premium High Street</h3>
+            <div className='col-span-5'>
+              <ChartLine val={80} bg={"#e5e7eb"} color={"#00A0FA"} />
+            </div>
+            <h3 className='col-span-2 text-center'>80%</h3>
+            <h3 className='col-span-2 text-center'>20%</h3>
           </div>
-          <h3 className='col-span-2 text-center'>80%</h3>
-          <h3 className='col-span-2 text-center'>20%</h3>
-        </div>
-        <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
-          <h3 className=' col-span-3'>Neighborhood premium Mail</h3>
-          <div className='col-span-5'>
-            <ChartLine val={70} />
+          <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
+            <h3 className=' col-span-3'>Neighborhood premium Mail</h3>
+            <div className='col-span-5'>
+              <ChartLine val={70} bg={"#e5e7eb"} color={"#00A0FA"} />
+            </div>
+            <h3 className='col-span-2 text-center'>70%</h3>
+            <h3 className='col-span-2 text-center'>30%</h3>
           </div>
-          <h3 className='col-span-2 text-center'>70%</h3>
-          <h3 className='col-span-2 text-center'>30%</h3>
-        </div>
-        <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
-          <h3 className=' col-span-3'>Golf Cource</h3>
-          <div className='col-span-5'>
-            <ChartLine val={30} />
+          <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
+            <h3 className=' col-span-3'>Golf Cource</h3>
+            <div className='col-span-5'>
+              <ChartLine val={30} bg={"#e5e7eb"} color={"#00A0FA"} />
+            </div>
+            <h3 className='col-span-2 text-center'>30%</h3>
+            <h3 className='col-span-2 text-center'>70%</h3>
           </div>
-          <h3 className='col-span-2 text-center'>30%</h3>
-          <h3 className='col-span-2 text-center'>70%</h3>
-        </div>
-        <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
-          <h3 className=' col-span-3'>Arterial Route</h3>
-          <div className='col-span-5'>
-            <ChartLine val={60} />
+          <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
+            <h3 className=' col-span-3'>Arterial Route</h3>
+            <div className='col-span-5'>
+              <ChartLine val={60} bg={"#e5e7eb"} color={"#00A0FA"} />
+            </div>
+            <h3 className='col-span-2 text-center'>60%</h3>
+            <h3 className='col-span-2 text-center'>40%</h3>
           </div>
-          <h3 className='col-span-2 text-center'>60%</h3>
-          <h3 className='col-span-2 text-center'>40%</h3>
-        </div>
-        <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
-          <h3 className=' col-span-3'>Feeder Route</h3>
-          <div className='col-span-5'>
-            <ChartLine val={80} />
+          <div className='col-1 px-8 grid grid-cols-12 gap-5 py-2 '>
+            <h3 className=' col-span-3'>Feeder Route</h3>
+            <div className='col-span-5'>
+              <ChartLine val={80} bg={"#e5e7eb"} color={"#00A0FA"} />
+            </div>
+            <h3 className='col-span-2 text-center'>80%</h3>
+            <h3 className='col-span-2 text-center'>20%</h3>
           </div>
-          <h3 className='col-span-2 text-center'>80%</h3>
-          <h3 className='col-span-2 text-center'>20%</h3>
         </div>
       </div>
 
       <div className='total-spending mt-16'>
-        <div className='row-1 grid grid-cols-12 gap-5 py-2 px-3'>
+        <div className='row-1 grid sm:grid-cols-12 gap-5 py-2 px-3'>
           <h3 className='col-span-3 font-medium'>Total Spending</h3>
           <div className='col-span-9'>
-            <ChartLine val={70} />
+            <ChartLine val={90} bg={"#e5e7eb"} color={"green"} />
           </div>
         </div>
-        <div className='row-2 grid grid-cols-12 gap-5 py-2 px-3 items-center'>
+        <div className='row-2 grid mt-3 sm:mt-0 sm:grid-cols-12 gap-5 py-2 px-3 items-center'>
           <h3 className='col-span-3 font-medium'>Day Wise Analysis</h3>
-          <div className='col-span-9 h-36 w-full border-2 border-gray-200 rounded-lg p-3'>
+          <div className='col-span-9 h-36 w-full overflow-auto border-2 border-gray-200 rounded-lg p-3'>
             <AreaChart />
           </div>
         </div>
       </div>
 
-      <div className='grid grid-cols-12 gap-5 py-2 px-3'>
-        <div className='col-span-8'>
-          {/* <Bar options={options} data={data} /> */}
+      <div className='grid grid-cols-12 gap-5 py-2 px-3 mt-5'>
+        <div className='col-span-full md:col-span-8 border rounded-lg py-3 px-5'>
+          <h3 className='text-lg font-semibold mb-4 ml-4'>Logs</h3>
+          <div className=' h-56'>
+            <Bar options={options} data={data} />
+          </div>
+        </div>
+        <div className='col-span-full md:col-span-4 border rounded-lg px-5 py-3'>
+          <h3 className='text-lg font-semibold mb-4 ml-2'>
+            Impressions Delivered
+          </h3>
+          <div className='h-56'>
+            <Doughnut data={doughnutData} options={doughnutOptions} />
+          </div>
         </div>
       </div>
 
@@ -332,13 +356,19 @@ export default function Home() {
 }
 
 // eslint-disable-next-line
-const ChartLine = ({ val }) => {
+const ChartLine = ({ val, color, bg }) => {
   return (
-    <div className='h-2 w-full bg-gray-100'>
+    <div
+      style={{
+        background: bg,
+      }}
+      className='h-2 w-full'
+    >
       <div
-        className='h-2 bg-blue-400'
+        className='h-2'
         style={{
           width: val + "%",
+          background: color,
         }}
       ></div>
     </div>
